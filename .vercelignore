@@ -5,8 +5,24 @@ docs/
 datasets/
 data/
 src/models/
+src/web/
+src/tests/
 *.pkl
 *.joblib
 tests/
 scripts/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.git/
+.gitignore
+LICENSE
+README.md
 

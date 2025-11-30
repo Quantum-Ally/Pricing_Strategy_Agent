@@ -1,6 +1,5 @@
 fastapi
-uvicorn[standard]
-numpy
+uvicorn
 joblib
 pydantic
 python-dotenv

@@ -1,4 +1,4 @@
-import numpy as np
+import random
 import joblib
 from pathlib import Path
 
@@ -14,7 +14,7 @@ class PricingAgent:
     def _predict_units(self, features):
         if self.model is None:
             # fallback simple heuristic if no model
-            return max(1, int(100 * np.random.rand()))
+            return max(1, int(100 * random.random()))
         return int(self.model.predict([features])[0])
 
     def recommend_price(self, product_id, cost_price, competitor_price=None, demand_level=None, min_margin=0.1, max_price=None):
