@@ -1,0 +1,12 @@
+# Exclude large/unnecessary files
+notebooks/
+docker/
+docs/
+datasets/
+data/
+src/models/
+*.pkl
+*.joblib
+tests/
+scripts/
+
