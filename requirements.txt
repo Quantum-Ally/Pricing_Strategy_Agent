@@ -1,5 +1,3 @@
 fastapi
 uvicorn
-joblib
 pydantic
-python-dotenv

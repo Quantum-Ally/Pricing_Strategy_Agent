@@ -1,6 +1,12 @@
 import random
-import joblib
 from pathlib import Path
+
+# Optional import - joblib only needed if models exist
+try:
+    import joblib
+    JOBLIB_AVAILABLE = True
+except ImportError:
+    JOBLIB_AVAILABLE = False
 
 MODEL_PATH = Path(__file__).parent.parent / "models" / "psa_model_v1.pkl"
 
@@ -8,8 +14,11 @@ class PricingAgent:
     def __init__(self, model_path=MODEL_PATH):
         # Lazy load model; in production use startup event
         self.model = None
-        if model_path.exists():
-            self.model = joblib.load(model_path)
+        if JOBLIB_AVAILABLE and model_path.exists():
+            try:
+                self.model = joblib.load(model_path)
+            except Exception:
+                self.model = None
 
     def _predict_units(self, features):
         if self.model is None:
